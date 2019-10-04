@@ -14,10 +14,14 @@ pipeline {
 				}
             }
         }
-    }
-	post {
-		always {
-			mail bcc: '', body: 'Hello, ${JOB_NAME} build ${BUILD_NUMBER} successfully deploy on DevServer. Thankyou.', cc: '', from: 'infra@logilite.com', replyTo: '', subject: '${JOB_NAME} for ${BUILD_NUMBER}', to: 'prajavat@logilite.com'
+		stage('Email Notification') {
+			mail bcc: '', body: '''Hello Welcome to Jenkins Notification.
+			Thank you.''', cc: '', from: '', replyTo: '', subject: 'Jenkins Job notification', to: 'prajavat@logilite.com'			
 		}
-	} 
+    // }
+	// post {
+	// 	always {
+	// 		mail bcc: '', body: 'Hello, ${JOB_NAME} build ${BUILD_NUMBER} successfully deploy on DevServer. Thankyou.', cc: '', from: 'infra@logilite.com', replyTo: '', subject: '${JOB_NAME} for ${BUILD_NUMBER}', to: 'prajavat@logilite.com'
+	// 	}
+	// } 
 }
