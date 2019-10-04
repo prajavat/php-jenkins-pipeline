@@ -9,9 +9,8 @@ pipeline {
         }
         stage('Deploy On Dev-Server') {
             steps {
-				def scpcommand = 'ubuntu@192.168.1.70:/var/www/html/'
                 sshagent(['192be36e-6db0-49b3-ba61-cbffbf84d5bd']) {
-					sh "ssh -o StrictHostKeyChecking=no * ${scpcommand}"
+					sh "scp -r -o StrictHostKeyChecking=no * ubuntu@192.168.1.70:/var/www/html/"
 				}
             }
         }
