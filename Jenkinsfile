@@ -14,11 +14,10 @@ pipeline {
 				}
             }
         }
-		emailext (
-			subject: "Job '${env.JOB_NAME} ${env.BUILD_NUMBER}'",
-			body: """<p>Check console output at <a href="${env.BUILD_URL}">${env.JOB_NAME}</a></p>""",
-			to: "prajavat@logilite.com",
-			from: "infra@logilite.com"
-		)
     }
+	post {
+		always {
+			mail bcc: '', body: 'Hello, ${JOB_NAME} build ${BUILD_NUMBER} successfully deploy on DevServer. Thankyou.', cc: '', from: '', replyTo: '', subject: '${JOB_NAME} for ${BUILD_NUMBER}', to: 'prajavat@logilite.com'
+		}
+	} 
 }
