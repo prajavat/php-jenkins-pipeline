@@ -2,20 +2,17 @@ pipeline {
     agent any
 
     stages {
-        stage('Pre Build') {
+        stage('SCM Checkout') {
             steps {
                 git credentialsId: 'ec5f02c4-76ab-44c0-acc0-63d584f0324c', url: 'https://github.com/prajavat/php-jenkins-pipeline.git'
             }
         }
-        stage('Build') {
+        stage('Deploy On Dev-Server') {
             steps {
-                echo 'Building Building..'
-            }
-        }
-
-        stage('Deploy') {
-            steps {
-                echo 'Deploying Deploying....'
+				def scpcommand = 'ubuntu@192.168.1.70:/var/www/html/'
+                sshagent(['192be36e-6db0-49b3-ba61-cbffbf84d5bd']) {
+					sh "ssh -o StrictHostKeyChecking=no * ${scpcommand}"
+				}
             }
         }
     }
