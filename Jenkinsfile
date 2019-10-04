@@ -17,7 +17,7 @@ pipeline {
     }
 	post {
 		always {
-			mail bcc: '', body: 'Hello, ${JOB_NAME} build ${BUILD_NUMBER} successfully deploy on DevServer. Thankyou.', cc: '', from: '', replyTo: '', subject: '${JOB_NAME} for ${BUILD_NUMBER}', to: 'prajavat@logilite.com'
+			mail bcc: '', body: 'Hello, ${JOB_NAME} build ${BUILD_NUMBER} successfully deploy on DevServer. Thankyou.', cc: '', from: 'infra@logilite.com', replyTo: '', subject: '${JOB_NAME} for ${BUILD_NUMBER}', to: 'prajavat@logilite.com'
 		}
 	} 
 }
