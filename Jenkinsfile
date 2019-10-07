@@ -7,7 +7,7 @@ node{
                sh "scp -r -o StrictHostKeyChecking=no * ubuntu@192.168.1.70:/var/www/html/"
            }
        }
-       stage ('Build Status') {
+       try {
            echo "Im not going to fail"
            currentBuild.result = 'SUCCESS'
        } catch (Exception err) {
