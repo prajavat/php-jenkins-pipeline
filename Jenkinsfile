@@ -1,6 +1,7 @@
 pipeline {
     agent any
 
+    emailext body: 'Thanks', recipientProviders: [developers()], subject: 'Hello', to: 'prajavat@logilite.com'
     stages {
         stage('SCM Checkout') {
             steps {
