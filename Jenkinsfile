@@ -19,7 +19,9 @@
 // }
 
 node{
-       emailext body: 'Thanks', recipientProviders: [developers()], subject: 'Hello', to: 'prajavat@logilite.com'
+       stage('Send Notification') {
+           emailext body: 'Thanks', recipientProviders: [developers()], subject: 'Hello', to: 'prajavat@logilite.com'
+       }
        stage('SCM Checkout') {
            git credentialsId: 'ec5f02c4-76ab-44c0-acc0-63d584f0324c', url: 'https://github.com/prajavat/php-jenkins-pipeline.git'
        }
