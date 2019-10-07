@@ -14,8 +14,5 @@ pipeline {
 				}
             }
         }
-		stage('Email Notification') {
-			mail bcc: '', body: 'Hello Welcome to Jenkins Notification. Thank you.', cc: '', from: '', replyTo: '', subject: 'Jenkins Job notification', to: 'prajavat@logilite.com'
-		}
     }
 }
