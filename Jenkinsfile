@@ -1,8 +1,8 @@
 node{
        stage('Send Notification') {
-           BUILD_STATUS=$(curl --silent ${BUILD_URL}api/json | jq -r '.result')
-           echo $BUILD_STATUS
-           emailext body: 'Jenkins job ${env.JOB_NAME} is $BUILD_STATUS', subject: 'Jenkins ${env.JOB_NAME} Status', to: 'prajavat@logilite.com'
+        //    BUILD_STATUS=$(curl --silent ${BUILD_URL}api/json | jq -r '.result')
+        //    echo $BUILD_STATUS
+           emailext body: 'Jenkins job ${env.JOB_NAME} is', subject: 'Jenkins ${env.JOB_NAME} Status', to: 'prajavat@logilite.com'
        }
        stage('SCM Checkout') {
            git credentialsId: 'ec5f02c4-76ab-44c0-acc0-63d584f0324c', url: 'https://github.com/prajavat/php-jenkins-pipeline.git'
