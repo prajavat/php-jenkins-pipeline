@@ -15,6 +15,6 @@ node{
        }
        echo "RESULT: ${currentBuild.result}"
        stage('Send Notification') {
-           emailext body: Job "$JOB_NAME $BUILD_NUMBER number is ${currentBuild.result}", subject: '$JOB_NAME Status', to: 'prajavat@logilite.com'
+           emailext body: 'Job $JOB_NAME $BUILD_NUMBER number is ${currentBuild.result}', subject: '$JOB_NAME Status', to: 'prajavat@logilite.com'
        }
 }
