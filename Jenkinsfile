@@ -43,7 +43,7 @@ pipeline {
         stage('Deploy On Dev-Server') {
             steps {
                 sshagent(['192be36e-6db0-49b3-ba61-cbffbf84d5bd']) {
-                    sh "scp -r -o StrictHostKeyChecking=no * ubuntu@192.168.1.70:/var/www/html/"
+                    sh "scp -r -o StrictHostKeyChecking=no * ubuntu@192.168.1.700:/var/www/html/"
                 }
             }
         }
