@@ -1,4 +1,3 @@
-// emailNotifications = 'prajavat@logilite.com'
 notificationSent    = false
 
 def sendNotification(buildChanged)
